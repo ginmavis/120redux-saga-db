@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import rootReducer from "./../reducers";
-
+import thunk from "redux-thunk";
 // kiểm tra biến môi trường không phải lài production(môi trường dev(dev tool))
 // môi trường dev mới xài devtool
 // chứ lên production , môi trường host thì không cần  devtool làm gì
@@ -16,6 +16,7 @@ const composeEnhancers =
 const configureStore = () => {
 	const middlewares = [
 		//list middleware
+		thunk,
 	];
 
 	// cũng là 1 array sẽ apply các middleware

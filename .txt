@@ -2,14 +2,29 @@
 	npm install @material-ui/core
 	npm install @material-ui/icons
 	npm install redux react-redux redux-thunk
+	npm install axios
 	- run server :
 		json-server db.json
-121 : Tích hợp Redux DevTools Version Mới
+121 : Tích hợp Redux DevTools Version Mới (configureStore)
 
 	- Bên trong redux : chứa file cầu hình store và tích hợp các
 	middleware 	, ngoài ra còn có thể chứa các middleware khác cần thiêt
 
 	- process.env.NODE_ENV : kiểm tra  môi trường
+	- kết quả : đã @@INIT được store trong redux tool
+122 : tích hợp axios  và xây dựng base Service
+	- tính hợp redux-thunk (configureStore)
+	- add task như module của database(api) chứa các action type
+	- viết class gọi hỗ trợ các Api( đưa vào common or tạo mới thư mục Services)
+	- constructor sẽ được gọi khi new class
+
+	- có 1 class axiosService , khi tiến hành imports để sử dụng axiosService
+	 tui sẽ gọi toán tử new thì nó sẽ ngay lập tức gọi ra toán tử instance thuộc
+	 về class axiosService , đồng thời chạy hàm constructor,
+	- khi thành công gọi về response
+	- khi thất bại gọi Promise.reject
+
+
 Note :  -Containers là nơi connect tới redux lấy các state và dispatch các
         action
         - Components : dùng để hiển thị
