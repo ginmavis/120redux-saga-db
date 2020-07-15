@@ -1,0 +1,10 @@
+120 : Mock Api workflow management(quản lý công việc)
+	npm install @material-ui/core
+	npm install @material-ui/icons
+
+	- run server :
+		json-server db.json
+121 : Tích hợp Redux DevTools Version Mới
+
+
+
