@@ -1,10 +1,21 @@
 120 : Mock Api workflow management(quản lý công việc)
 	npm install @material-ui/core
 	npm install @material-ui/icons
-
+	npm install redux react-redux redux-thunk
 	- run server :
 		json-server db.json
 121 : Tích hợp Redux DevTools Version Mới
 
+	- Bên trong redux : chứa file cầu hình store và tích hợp các
+	middleware 	, ngoài ra còn có thể chứa các middleware khác cần thiêt
 
+	- process.env.NODE_ENV : kiểm tra  môi trường
+Note :  -Containers là nơi connect tới redux lấy các state và dispatch các
+        action
+        - Components : dùng để hiển thị
+		- Redux : chứa file cầu hình store và tích hợp các
+		middleware 	, ngoài ra còn có thể chứa các middleware khác cần thiêt
+
+
+		...middleware : là aray nên dùng dấu 3 chấm (tương đối)
 
