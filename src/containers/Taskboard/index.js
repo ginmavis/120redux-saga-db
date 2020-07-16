@@ -15,28 +15,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as taskActions from "./../../actions/task";
 
-// generate  data
-const listTask = [
-	{
-		id: 1,
-		title: "Read book",
-		description: "read material ui book",
-		status: 0,
-	},
-	{
-		id: 2,
-		title: "play football",
-		description: "hang out with my friend",
-		status: 2,
-	},
-	{
-		id: 3,
-		title: "Play Game",
-		description: "solo yasuo",
-		status: 1,
-	},
-];
-
 class TaskBoard extends Component {
 	state = {
 		open: false,
@@ -48,6 +26,7 @@ class TaskBoard extends Component {
 		fetchListTaskRequest();
 	}
 	renderBoard() {
+		const { listTask } = this.props;
 		// console.log(this.props);
 		let xhtml = null;
 		xhtml = (
@@ -108,14 +87,20 @@ class TaskBoard extends Component {
 	}
 }
 
+// check  dữ liệu nhận được là hợp lệ
 TaskBoard.propTypes = {
 	classes: PropTypes.object,
 	taskActions: PropTypes.shape({
 		fetchListTaskRequest: PropTypes.func,
 	}),
+	listTask: PropTypes.array,
 };
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => {
+	return {
+		listTask: state.task.listTask,
+	};
+};
 const mapDispatchToProps = (dispatch) => {
 	return {
 		taskActionsCreators: bindActionCreators(taskActions, dispatch),

@@ -27,6 +27,14 @@
 	- dùng axiosService để gọi api thông qua apis/task
 
 	- connect redux
+124
+	- quy trình get data
+	- B1: Gọi fetchListTaskRequest()
+	- B2 : (khi gọi FETCH_TASK) Reset : state tasks=>[] (
+		gọi dispatch(fetchListTask) trong fetchListTaskRequest )
+	- B3 Khi gọi api thành công , đi vào then
+		dispatch fetchListTaskSuccess(data)
+	-  Tương tự với error
 
 
 Note :  -Containers là nơi connect tới redux lấy các state và dispatch các

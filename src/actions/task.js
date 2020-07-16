@@ -26,13 +26,15 @@ export const fetchListTaskFail = (error) => {
 
 export const fetchListTaskRequest = () => {
 	return (dispatch) => {
+		dispatch(fetchListTask());
 		taskApis
 			.getList()
-			.then((data) => {
-				console.log("data", data);
+			.then((res) => {
+				const { data } = res;
+				dispatch(fetchListTaskSuccess(data));
 			})
 			.catch((error) => {
-				console.log("error", error);
+				dispatch(fetchListTaskFail(error));
 			});
 	};
 };
