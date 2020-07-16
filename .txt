@@ -45,6 +45,39 @@
 	- tách toastify trong helper
 	- gọi toastify trong  redux/task
 
+126 :  tổng quan redux saga
+	- Side-Effect : là những tương tác của ứng dụng với thế giới bên ngoài :
+	giao tiếp Api, đọc ghi file, analyst events
+	- Trong redux : side-effect thường được xử lý ở action (action creator)
+	or middleware
+	- K xử lý ở reducer , vì reducer phải là pure funtion -hàm thuần túy
+	- Redux thunk : Ta thường sử dụng đc để thực hiện gọi AJAX (call api).
+	dispatch một action sau khi gọi API thành công hoặc dispatch một action
+	trong quá trình callapi (VD : hiển thị 1 thanh tiến trình (loading) )
+	- Sau đó đến store. Đảm  bảo đến store là 1 action
+	- Demo :  thực hiện asynchronous(không đồng bộ), thay vì action creator trả về một  action,
+	ta sẽ trả
+
+	- redux-thunk :
+		- Điểm mạnh :
+			- Đơn giản , nhiều ví dụ , suorce example github nhiều
+			- Mạnh mẽ
+			- Dễ dàng , nhẹ nhàng
+		- Điểm yếu :
+			- Giải quyết bài toán phức tạp với các cách viết dài dòng, phức tạp, khó mô tả bài toán
+			bằng code cho người đi sau
+			- Khó đọc , khó maintain
+
+	- Redux-Saga
+		- Điểm mạnh :
+			- Xử lý các quy trình dài hạn, phức tạp
+			- Giải quyết các bài toán về chains of Promise
+			- giúp clean code
+		- Điểm yếu
+			- Phức tạp.
+			- Tốn thời gian dành cho thành viên mới vào team
+			- Nặng về xử lý . Không dành cho ứng dụng đơn giản
+
 
 
 
