@@ -36,6 +36,18 @@
 		dispatch fetchListTaskSuccess(data)
 	-  Tương tự với error
 
+125 :
+	tích hợp React-Toastify
+	- import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+   vào app
+	- add : npm install --save react-toastify
+	- tách toastify trong helper
+	- gọi toastify trong  redux/task
+
+
+
+
 
 Note :  -Containers là nơi connect tới redux lấy các state và dispatch các
         action
@@ -44,6 +56,8 @@ Note :  -Containers là nơi connect tới redux lấy các state và dispatch c
 		middleware 	, ngoài ra còn có thể chứa các middleware khác cần thiêt
 		- common (tác dụng tương tự module)
 		- apis :  chứa các hàm sẽ gọi api riêng biệt cho các module(axiosService/module)
-		-
+		- helper : chứa các hàm xài chung ( có thể viết trong common)
+
+
 		...middleware : là aray nên dùng dấu 3 chấm (tương đối)
 
