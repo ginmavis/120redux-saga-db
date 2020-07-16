@@ -23,6 +23,10 @@
 	 về class axiosService , đồng thời chạy hàm constructor,
 	- khi thành công gọi về response
 	- khi thất bại gọi Promise.reject
+123
+	- dùng axiosService để gọi api thông qua apis/task
+
+	- connect redux
 
 
 Note :  -Containers là nơi connect tới redux lấy các state và dispatch các
@@ -30,7 +34,8 @@ Note :  -Containers là nơi connect tới redux lấy các state và dispatch c
         - Components : dùng để hiển thị
 		- Redux : chứa file cầu hình store và tích hợp các
 		middleware 	, ngoài ra còn có thể chứa các middleware khác cần thiêt
-
-
+		- common (tác dụng tương tự module)
+		- apis :  chứa các hàm sẽ gọi api riêng biệt cho các module(axiosService/module)
+		-
 		...middleware : là aray nên dùng dấu 3 chấm (tương đối)
 

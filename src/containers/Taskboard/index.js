@@ -10,6 +10,11 @@ import { STATUSES } from "../../constants";
 import TaskList from "./../../components/TaskList";
 
 import TaskForm from "../../components/TaskForm";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as taskActions from "./../../actions/task";
+
 // generate  data
 const listTask = [
 	{
@@ -36,6 +41,12 @@ class TaskBoard extends Component {
 	state = {
 		open: false,
 	};
+
+	componentDidMount() {
+		const { taskActionsCreators } = this.props;
+		const { fetchListTaskRequest } = taskActionsCreators;
+		fetchListTaskRequest();
+	}
 	renderBoard() {
 		// console.log(this.props);
 		let xhtml = null;
@@ -49,11 +60,7 @@ class TaskBoard extends Component {
 					);
 
 					return (
-						<TaskList
-							tasks={taskFiltered}
-							status={status}
-							key={index}
-						/>
+						<TaskList tasks={taskFiltered} status={status} key={index} />
 					);
 				})}
 			</Grid>
@@ -100,4 +107,21 @@ class TaskBoard extends Component {
 		);
 	}
 }
-export default withStyles(styles)(TaskBoard);
+
+TaskBoard.propTypes = {
+	classes: PropTypes.object,
+	taskActions: PropTypes.shape({
+		fetchListTaskRequest: PropTypes.func,
+	}),
+};
+
+const mapStateToProps = null;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		taskActionsCreators: bindActionCreators(taskActions, dispatch),
+	};
+};
+
+export default withStyles(styles)(
+	connect(mapStateToProps, mapDispatchToProps)(TaskBoard)
+);
